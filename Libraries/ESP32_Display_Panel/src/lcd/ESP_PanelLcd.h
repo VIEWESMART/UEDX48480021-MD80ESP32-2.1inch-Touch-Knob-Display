@@ -49,6 +49,13 @@ public:
         BER_VERTICAL = MIPI_DSI_PATTERN_BER_VERTICAL,
     };
 #endif
+    /**
+     * @brief Function pointer type for refresh completion callback
+     *
+     * @param[in] user_data User provided data pointer that will be passed to the callback
+     * @return `true` if a context switch is required, `false` otherwise
+     */
+    using FunctionRefreshFinishCallback = bool (*)(void* user_data);
 
     /**
      * @brief Construct a new LCD device in a simple way, the `init()` function should be called after this function
@@ -352,7 +359,7 @@ public:
      *                  by this function
      * @param user_data The user data which will be passed to the callback function
      */
-    bool attachRefreshFinishCallback(std::function<bool (void *)> callback, void *user_data = NULL);
+    bool attachRefreshFinishCallback(FunctionRefreshFinishCallback callback, void *user_data = NULL);
 
     /**
      * @brief Draw color bar from top left to bottom right, the order is BGR. This function is used for testing.

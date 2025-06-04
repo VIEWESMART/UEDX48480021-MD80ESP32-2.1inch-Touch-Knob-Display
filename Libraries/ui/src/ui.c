@@ -13,7 +13,7 @@ uint8_t HF_ui_screen_id=1;//当前屏幕索引  1主界面  2设置时间  3工�
 uint8_t HF_open=0;
 extern  int selected_index;
 extern  char * options[];
-extern  char * options2[];
+extern  int options2[];
 extern int options_max_num;
 extern int HF_number;
 
@@ -153,19 +153,19 @@ void   LVGL_knob_event(void *event)
 
         
         if(index2==1)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_2kaoji_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_2kaoji_png));
         else if(index2==2)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_3danta_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(&ui_img_3danta_png));
         else if(index2==3)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_4pisa_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(&ui_img_4pisa_png));
         else if(index2==4)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_5liupai_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(&ui_img_5liupai_png));
         else if(index2==5)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_6shutiao_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(&ui_img_6shutiao_png));
         else if(index2==6)
         {
            
-            _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_1kaorou_png);
+            _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_1kaorou_png));
         }
        
    
@@ -260,19 +260,19 @@ void ui_event_background(lv_event_t * e)
         if(index2>=7)
             index2=1;
         if(index2==1)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_2kaoji_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_2kaoji_png));
         else if(index2==2)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_3danta_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_3danta_png));
         else if(index2==3)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_4pisa_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_4pisa_png));
         else if(index2==4)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_5liupai_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_5liupai_png));
         else if(index2==5)
-        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_6shutiao_png);
+        _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_6shutiao_png));
         else if(index2==6)
         {
            
-            _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, & ui_img_1kaorou_png);
+            _ui_image_set_property(ui_background, _UI_IMAGE_PROPERTY_IMAGE, (uint8_t*)(& ui_img_1kaorou_png));
         }
     }
        
