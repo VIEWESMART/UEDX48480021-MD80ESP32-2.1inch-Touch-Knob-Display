@@ -60,7 +60,7 @@ static void LongPressStartCb(void *button_handle, void *usr_data) {
     lvgl_port_unlock();
 }
 
-/device initialization/
+/*device initialization*/
 void setup()
 {
     String title = "LVGL porting example";
