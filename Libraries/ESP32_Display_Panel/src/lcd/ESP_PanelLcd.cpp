@@ -436,7 +436,7 @@ bool ESP_PanelLcd::attachDrawBitmapFinishCallback(std::function<bool (void *)> c
     return true;
 }
 
-bool ESP_PanelLcd::attachRefreshFinishCallback(std::function<bool (void *)> callback, void *user_data)
+bool ESP_PanelLcd::attachRefreshFinishCallback(FunctionRefreshFinishCallback callback, void *user_data)
 {
     ESP_PANEL_CHECK_FALSE_RET(checkIsInit(), false, "Not initialized");
     ESP_PANEL_CHECK_FALSE_RET(
@@ -451,10 +451,12 @@ bool ESP_PanelLcd::attachRefreshFinishCallback(std::function<bool (void *)> call
     (SOC_LCD_RGB_SUPPORTED && CONFIG_LCD_RGB_ISR_IRAM_SAFE && !(CONFIG_SPIRAM_RODATA && CONFIG_SPIRAM_FETCH_INSTRUCTIONS))
     if (bus->getType() == ESP_PANEL_BUS_TYPE_RGB || bus->getType() == ESP_PANEL_BUS_TYPE_MIPI_DSI) {
         ESP_PANEL_CHECK_FALSE_RET(
-            esp_ptr_in_iram(callback), false,
+            esp_ptr_in_iram(reinterpret_cast<const void*>(callback)), false,
             "Callback function should be placed in IRAM, add `IRAM_ATTR` before the function"
         );
-        ESP_PANEL_CHECK_FALSE_RET((esp_ptr_internal(user_data), false, "User data should be placed in SRAM"));
+        ESP_PANEL_CHECK_FALSE_RET(
+            esp_ptr_internal(user_data), false, "User data should be placed in SRAM"
+        );
     }
 #endif
 

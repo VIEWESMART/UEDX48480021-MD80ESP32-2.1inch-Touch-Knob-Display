@@ -76,18 +76,6 @@
 // #define BOARD_VIEWE_ESP_S3_Touch_LCD_50_V1
 // #define BOARD_VIEWE_ESP_S3_Touch_LCD_70
 
-/*
-The following products control IM through software
-*/
-#if defined(BOARD_VIEWE_ESP_S3_Touch_LCD_24) || \
-    defined(BOARD_VIEWE_ESP_S3_Touch_LCD_28) || \
-    defined(BOARD_VIEWE_ESP_S3_Touch_LCD_35_V1) || \
-    defined(BOARD_VIEWE_ESP_S3_Touch_LCD_35_V2)
-#define IM
-#define IM0 47
-#define IM1 48
-#endif
-
 #if defined(BOARD_UEDX48480021_MD80ET) || defined(BOARD_UEDX48480021_MD80E)
 #define KNOB21
 #endif
