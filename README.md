@@ -133,6 +133,143 @@ UEDX48480021-MD80ESP32_2.1inch-Touch-Knob-Display is a development board with sq
 | ------  | ------  | ------ |
 | [ESP-IDF]() | Original |  |
 
+### Software Framework Configuration
+
+| Support IDE | Version |
+| ------  | ------  |
+| `[ESP-IDF]` | `[V5.1/5.2/5.3]` |
+| `[Arduino IDE]` | `[esp32 >=v3.0.7]` | 
+| `[Platformio IDE]` |  |
+### ESP-IDF Framework ([Novice tutorial]())
+- Supported Versions: v5.1/5.2/5.3
+- Download the example code from the repository and compile/run it directly.
+- Repository Address: [examples](examples/esp_idf)
+
+### Arduino Framework ([Novice tutorial](https://github.com/VIEWESMART/VIEWE-Tutorial/blob/main/Arduino%20Tutorial/Arduino%20Getting%20Started%20Tutorial.md))
+1. **Install[Arduino](https://www.arduino.cc/en/software)**
+- Choose installation based on your system type.
+- Newcomers please refer to the [beginner's tutorial](https://github.com/VIEWESMART/VIEWE-Tutorial/blob/main/Arduino%20Tutorial/Arduino%20Getting%20Started%20Tutorial.md).
+
+2. **Install ESP32 SDK**
+
+- Open Arduino IDE
+- Go to `File` > `Preferences`
+- Add to `Additional boards manager URLs`:
+  ```
+  https://espressif.github.io/arduino-esp32/package_esp32_index.json
+  ```
+  
+- Navigate to `Tools` > `Board` > `Boards Manager`
+- Search for `esp32` by `Espressif Systems`
+- select `3.1.0` and above,click the `INSTALL` button to install
+
+3. **Install Required Libraries**
+   
+  `ESP32_Display_Panel` and its dependencies are available in Arduino Library Manager. Install online:
+
+  - In Arduino IDE, go to `Sketch` > `Include Library` > `Manage Libraries...`.
+  - Search for the `ESP32_Display_Panel` library and select `1.0.3` and above, click the `Install` button to install, you will be prompted whether to install its dependencies, please click `INSTALL ALL` to install all.
+  - Install `LVGL` library (optional), recommended version `8.4.0`.
+
+  For manual installation, you can download the required version's `.zip` file from [Github](https://github.com/esp-arduino-libs/ESP32_Display_Panel) or [Arduino Library](https://www.arduinolibraries.info/libraries/esp32_display_panel), then in Arduino IDE navigate to `Sketch` > `Include Library` > `Add .ZIP Library...`, select the downloaded `.zip` file and click `Open` to install.
+
+> [!NOTE]
+> * LVGL is only required for GUI examples
+
+4. **Select and configure board**
+
+- Navigate to `Tools` > `Board` > `esp32` > `ESP32S3 Dev Module`
+
+5. **Open example**
+
+- Navigate to `File` > `Examples` > `ESP32_Display_Panel`
+- Select `Arduino` > `gui` > `lvgl_v8` > `simple_port`
+
+6. **Modify code**
+ 
+- Modify macros definitions in *esp_panel_board_supported_conf.h* to enable target board.
+- Enable file macro definition: #define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED       (0) ---> #define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED       (1)
+- Cancel the comment of the corresponding board:// #define BOARD_VIEWE_UEDX48480021-MD80ET ---> #define BOARD_VIEWE_UEDX48480021-MD80ET
+- here's part of the modified *esp_panel_board_supported_conf.h* file:
+
+    ```c
+    ...
+    /**
+    * @brief Flag to enable supported board configuration (0/1)
+    *
+    * Set to `1` to enable supported board configuration, `0` to disable
+    */
+    #define ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED       (1)
+    ...
+    // #define BOARD_VIEWE_SMARTRING
+    // #define BOARD_VIEWE_UEDX24240013_MD50E
+    // #define BOARD_VIEWE_UEDX24320024E_WB_A
+    // #define BOARD_VIEWE_UEDX24320028E_WB_A
+    // #define BOARD_VIEWE_UEDX24320035E_WB_A
+    // #define BOARD_VIEWE_UEDX32480035E_WB_A
+    // #define BOARD_VIEWE_UEDX46460015_MD50ET
+    // #define BOARD_VIEWE_UEDX48270043E_WB_A
+    // #define BOARD_VIEWE_UEDX48480021_MD80E_V2
+    // #define BOARD_VIEWE_UEDX48480021_MD80E
+    // #define BOARD_VIEWE_UEDX48480021_MD80ET
+    #define BOARD_VIEWE_UEDX48480028_MD80ET
+    // #define BOARD_VIEWE_UEDX48480040E_WB_A
+    // #define BOARD_VIEWE_UEDX80480043E_WB_A
+    // #define BOARD_VIEWE_UEDX80480050E_AC_A
+    // #define BOARD_VIEWE_UEDX80480050E_WB_A
+    // #define BOARD_VIEWE_UEDX80480050E_WB_A_2
+    // #define BOARD_VIEWE_UEDX80480070E_WB_A
+    ...
+    ```
+
+> [!WARNING]
+> * Do not enable both `ESP_PANEL_BOARD_DEFAULT_USE_SUPPORTED` and `ESP_PANEL_BOARD_DEFAULT_USE_CUSTOM`
+> * You cannot enable multiple boards simultaneously
+
+7. Configure tool options :
+    #### ESP32-S3
+    | Setting                               | Value                         |
+    | :-------------------------------: | :-------------------------------: |
+    | Board                                 | ESP32S3 Dev Module            |
+    | Core Debug Level                | None                                |
+    | USB CDC On Boot                | Disabled                             |
+    | USB DFU On Boot                | Disabled                             |
+    | Flash Size                           | 16MB (128Mb)                   |
+    | Partition Scheme                | 16M Flash (3MB APP/9.9MB FATFS)     |
+    | PSRAM                                | OPI PSRAM                      |
+   
+8. Select the correct port.
+9. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
+
+> [!NOTE]
+> LVGL color swap settings,`SPI` and `QSPI` screens need to set the macro of `lv_conf.h` > `LV_COLOR_16_SWAP` to `1` and the `RGB` screen to `0`, as follows :
+
+    ```c
+    /**
+     * @file lv_conf.h
+     * Configuration file for v8.4.0
+     */
+    
+    /* clang-format off */
+    #if 1 /*Set it to "1" to enable content*/
+    
+    #ifndef LV_CONF_H
+    #define LV_CONF_H
+    
+    #include <stdint.h>
+    
+    /*====================
+       COLOR SETTINGS
+     *====================*/
+    
+    /*Color depth: 1 (1 byte per pixel), 8 (RGB332), 16 (RGB565), 32 (ARGB8888)*/
+    #define LV_COLOR_DEPTH 16
+    
+    /*Swap the 2 bytes of RGB565 color. Useful if the display has an 8-bit interface (e.g. SPI)*/
+    #define LV_COLOR_16_SWAP 1
+    ...
+    ```
+
 ### PlatformIO
 1. Install[VisualStudioCode](https://code.visualstudio.com/Download),Choose installation based on your system type.
 
@@ -144,39 +281,6 @@ UEDX48480021-MD80ESP32_2.1inch-Touch-Knob-Display is a development board with sq
 
 5. Open the "platformio.ini" file in the project folder (PlatformIO will automatically open the "platformio.ini" file corresponding to the added folder). Under the "[platformio]" section, uncomment and select the example program you want to burn (it should start with "default_envs = xxx") Then click "<kbd>[√](image/4.png)</kbd>" in the bottom left corner to compile,If the compilation is correct, connect the microcontroller to the computer and click "<kbd>[→](image/5.png)</kbd>" in the bottom left corner to download the program.
 
-### Arduino
-1. Install[Arduino](https://www.arduino.cc/en/software),Choose installation based on your system type.
-
-2. Open the "example" directory within the project folder, select the example project folder, and open the file ending with ".ino" to open the Arduino IDE project workspace.
-
-3. Open the "Tools" menu at the top right -> Select "Board" -> "Board Manager." Find or search for "esp32" and download the board files from the author named "Espressif Systems." Then, go back to the "Board" menu and select the development board type under "ESP32 Arduino." The selected development board type should match the one specified in the "platformio.ini" file under the [env] section with the header "board = xxx." If there is no corresponding development board, you may need to manually add the development board from the "board" directory within your project folder.
-
-4. Open menu bar "[File](image/6.png)" -> "[Preferences](image/6.png)" ,Find "[Sketchbook location](image/7.png)"  here,copy and paste all library files and folders from the "libraries" folder in the project directory into the "libraries" folder in this directory.
-
-5. Select the correct settings in the Tools menu, as shown in the table below.
-
-#### ESP32-S3
-| Setting                               | Value                                 |
-| :-------------------------------: | :-------------------------------: |
-| Board                                 | ESP32S3 Dev Module           |
-| CPU Frequency                   | 240MHz (WiFi)                    |
-| Core Debug Level                | None                                 |
-| USB CDC On Boot                | Disabled                              |
-| USB DFU On Boot                | Disabled                             |
-| Events Run On                     | Core 1                               |  
-| Flash Mode                         | QIO 80MHz                         |
-| Flash Size                           | 16MB (128Mb)                    |
-| Arduino Runs On                  | Core 1                               |
-| USB Firmware MSC On Boot | Disabled                             |
-| Partition Scheme                | 16M Flash (3MB APP/9.9MB FATFS) |
-| PSRAM                                | OPI PSRAM                         |
-| Upload Mode                     |     UART0/Hardware CDC            |
-| Upload Speed                     | 921600                               |
-| USB Mode                           | Hardware CDC and JTAG     |
-
-6. Select the correct port.
-
-7. Click "<kbd>[√](image/8.png)</kbd>" in the upper right corner to compile,If the compilation is correct, connect the microcontroller to the computer,Click "<kbd>[→](image/9.png)</kbd>" in the upper right corner to download.
 
 ### firmware download
 1. Open the project file "tools" and locate the ESP32 burning tool. Open it.
