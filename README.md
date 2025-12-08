@@ -327,6 +327,10 @@ UEDX48480021-MD80ESP32_2.1inch-Touch-Knob-Display is a development board with sq
 
 [Encoder](information/C219783_%E6%97%8B%E8%BD%AC%E7%BC%96%E7%A0%81%E5%99%A8_EC28A1520401_%E8%A7%84%E6%A0%BC%E4%B9%A6_WJ239718.PDF)
 
+[esp32-s3-wroom-1 datasheet(English)](information/esp32-s3-wroom-1_wroom-1u_datasheet_cn.pdf)
+
+[esp32-s3-wroom-1 datasheet(Chinese)](information/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf)
+
 
 
 
