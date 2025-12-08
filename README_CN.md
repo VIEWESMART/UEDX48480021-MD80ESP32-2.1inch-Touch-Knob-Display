@@ -294,9 +294,13 @@ UEDX48480021-MD80ESP32_2.1英寸-触摸旋钮显示屏是一款基于ESP32S3的�
 
 ## 相关资料
 [产品规格](information/UEDX48480021-MD80ET%20V1.1%20SPEC.pdf))
+
 [显示屏数据表](information/ALL-UE021WV-RB40-A009A%20V1.0%20SPEC.pdf)
+
 [按钮](information/6x6Silent%20switch.pdf)
+
 [编码器](information/C219783_%E6%97%8B%E8%BD%AC%E7%BC%96%E7%A0%81%E5%99%A8_EC28A1520401_%E8%A7%84%E6%A0%BC%E4%B9%A6_WJ239718.PDF)
+
 [esp32-s3-wroom-1 数据手册(English)](information/esp32-s3-wroom-1_wroom-1u_datasheet_cn.pdf)
 
 [esp32-s3-wroom-1 数据手册(Chinese)](information/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf)
