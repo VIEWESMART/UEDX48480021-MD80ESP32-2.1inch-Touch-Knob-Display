@@ -29,13 +29,13 @@
 | UEDX48480021-MD80ET   | ESP32S3R8       |  16M   | 8M（八进制串行外设接口）        | [VIEWE商城](https://viewedisplay.com/product/esp32-7-inch-800x480-rgb-ips-tft-display-touch-screen-arduino-lvgl-uart/)  |
 
 ## 目录
-- [描述](#describe)
-- [模块](#module)
-- [引脚概述](#pinoverview)
-- [快速入门](#quickstart)
-- [常见问题](#faq)
-- [原理图](#Schematic)
-- [相关资料](#information)
+- [描述](#描述)
+- [模块](#模块)
+- [引脚概述](#引脚概述)
+- [快速入门](#快速入门)
+- [常见问题](#常见问题)
+- [原理图](#原理图)
+- [相关资料](#相关资料)
 
 ## 描述
 UEDX48480021-MD80ESP32_2.1英寸-触摸旋钮显示屏是一款基于ESP32S3的开发板，配备2.1英寸正方形、480×480分辨率的显示屏，适用于带显示屏的微控制器项目开发。
