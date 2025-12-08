@@ -37,7 +37,6 @@
 - [FAQ](#faq)
 - [Schematic](#Schematic)
 - [Information](#information)
-- [DependentLibraries](#dependentlibraries)
 
 ## Describe
 
@@ -211,8 +210,8 @@ UEDX48480021-MD80ESP32_2.1inch-Touch-Knob-Display is a development board with sq
     // #define BOARD_VIEWE_UEDX48270043E_WB_A
     // #define BOARD_VIEWE_UEDX48480021_MD80E_V2
     // #define BOARD_VIEWE_UEDX48480021_MD80E
-    // #define BOARD_VIEWE_UEDX48480021_MD80ET
-    #define BOARD_VIEWE_UEDX48480028_MD80ET
+    #define BOARD_VIEWE_UEDX48480021_MD80ET
+    // #define BOARD_VIEWE_UEDX48480028_MD80ET
     // #define BOARD_VIEWE_UEDX48480040E_WB_A
     // #define BOARD_VIEWE_UEDX80480043E_WB_A
     // #define BOARD_VIEWE_UEDX80480050E_AC_A
@@ -328,12 +327,6 @@ UEDX48480021-MD80ESP32_2.1inch-Touch-Knob-Display is a development board with sq
 
 [Encoder](information/C219783_%E6%97%8B%E8%BD%AC%E7%BC%96%E7%A0%81%E5%99%A8_EC28A1520401_%E8%A7%84%E6%A0%BC%E4%B9%A6_WJ239718.PDF)
 
-## DependentLibraries
-* [ESP32_Display_Panel>0.2.1](https://github.com/esp-arduino-libs/ESP32_Display_Panel) (Please [download](./Libraries/ESP32_Display_Panel) the library first as the latest version has not been released yet)
-* [ESP32_IO_Expander](https://github.com/esp-arduino-libs/ESP32_IO_Expander) (Please [download](./Libraries/ESP32_IO_Expander) the library first as the latest version has not been released yet)
-* [ESP32_Button](https://github.com/esp-arduino-libs/ESP32_Button)
-* [ESP32_Knob](https://github.com/esp-arduino-libs/ESP32_Knob)
-* [lvgl-8.4.0](https://lvgl.io)
 
 
 
