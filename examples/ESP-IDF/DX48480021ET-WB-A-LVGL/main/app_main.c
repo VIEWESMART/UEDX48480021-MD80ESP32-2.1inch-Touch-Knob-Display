@@ -25,6 +25,7 @@
 #include "demos/lv_demos.h"
 #include "demos/keypad_encoder/lv_demo_keypad_encoder.h"
 #include "iot_knob.h"
+#include "ui/ui.h"
 
 static const char *TAG = "main";
 

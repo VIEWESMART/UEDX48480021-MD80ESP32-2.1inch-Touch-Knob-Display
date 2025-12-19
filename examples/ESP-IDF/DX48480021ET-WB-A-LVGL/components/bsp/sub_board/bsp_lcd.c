@@ -114,7 +114,7 @@ esp_lcd_panel_handle_t bsp_lcd_init(void *arg)
     };
     BSP_ERROR_CHECK_RETURN_NULL(esp_lcd_new_rgb_panel(&panel_conf, &panel_handle));
     esp_lcd_rgb_panel_event_callbacks_t cbs = {
-        .on_vsync = on_vsync_event,
+        .on_vsync = (_Bool (*)(struct esp_lcd_panel_t *, const esp_lcd_rgb_panel_event_data_t *, void *))on_vsync_event,
     };
     esp_lcd_rgb_panel_register_event_callbacks(panel_handle, &cbs, NULL);
     esp_lcd_panel_reset(panel_handle);

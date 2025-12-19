@@ -151,7 +151,7 @@ extern "C" {
  */
 
 esp_err_t app_lcd_init(void);
-lv_disp_t *lvgl_port_display_init();
+esp_err_t lvgl_port_display_init();
 esp_err_t app_touch_init(void);
 
 

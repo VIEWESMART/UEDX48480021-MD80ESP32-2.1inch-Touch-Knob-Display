@@ -474,7 +474,8 @@ static lv_indev_t *lvgl_touch_indev = NULL;
     
 
 }
-lv_disp_t *lvgl_port_display_init()
+
+esp_err_t lvgl_port_display_init()
 {
      /* Initialize LVGL */
     const lvgl_port_cfg_t lvgl_cfg = {
@@ -484,7 +485,8 @@ lv_disp_t *lvgl_port_display_init()
         .task_max_sleep_ms = 500,   /* Maximum sleep in LVGL task */
         .timer_period_ms = 5        /* LVGL timer tick period in ms */
     };
-    ESP_RETURN_ON_ERROR(lvgl_port_init(&lvgl_cfg), TAG, "LVGL port initialization failed");
+    esp_err_t ret=lvgl_port_init(&lvgl_cfg);
+    ESP_RETURN_ON_ERROR(ret, TAG, "LVGL port initialization failed");
 
     uint32_t buff_size = BSP_LCD_H_RES * EXAMPLE_LCD_DRAW_BUFF_HEIGHT;
 #if EXAMPLE_LCD_LVGL_FULL_REFRESH || EXAMPLE_LCD_LVGL_DIRECT_MODE
