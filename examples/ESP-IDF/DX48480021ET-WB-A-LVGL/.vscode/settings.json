@@ -26,5 +26,8 @@
         "esp_heap_caps.h": "c",
         "esp_system.h": "c",
         "task.h": "c"
-    }
+    },
+    "idf.currentSetup": "D:/Espressif/frameworks/esp-idf-v5.5.3/",
+    "idf.portWin": "COM44",
+    "idf.flashType": "UART"
 }

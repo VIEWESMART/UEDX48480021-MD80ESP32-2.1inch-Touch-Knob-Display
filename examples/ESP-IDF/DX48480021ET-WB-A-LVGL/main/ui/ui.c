@@ -8,6 +8,7 @@
 #include "esp_log.h"
 #include "iot_knob.h"
 #include "iot_button.h"
+#include <stdlib.h>
 static const char *TAG = "ui";
 ///////////////////// VARIABLES ////////////////////
 uint8_t HF_ui_screen_id=1;//当前屏幕索引  1主界面  2设置时间  3工作
@@ -317,7 +318,7 @@ void ui_event_Button5(lv_event_t * e)
 
     if(event_code == LV_EVENT_CLICKED) {
             selected_index = lv_roller_get_selected(ui_Roller1); // 获取当前选中的索引  
-        HF_number= options2[selected_index];
+        HF_number = atoi(options2[selected_index]);
         HF_ui_screen_id=1;
         _ui_label_set_property(ui_Label3, _UI_LABEL_PROPERTY_TEXT, options[selected_index]);
         _ui_screen_change(&ui_Screen1, LV_SCR_LOAD_ANIM_NONE, 5, 0, &ui_Screen1_screen_init);

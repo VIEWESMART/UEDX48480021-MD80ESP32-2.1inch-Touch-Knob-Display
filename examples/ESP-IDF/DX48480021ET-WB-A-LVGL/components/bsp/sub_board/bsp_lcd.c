@@ -31,7 +31,7 @@ static esp_err_t lcd_config(void);
  * LCD Panel Function
  *
  **************************************************************************************************/
-IRAM_ATTR static bool on_vsync_event(esp_lcd_panel_handle_t panel, esp_lcd_rgb_panel_event_data_t *edata, void *user_ctx)
+IRAM_ATTR static bool on_vsync_event(esp_lcd_panel_handle_t panel, const esp_lcd_rgb_panel_event_data_t *edata, void *user_ctx)
 {
     BaseType_t need_yield = pdFALSE;
 #if CONFIG_BSP_LCD_RGB_REFRESH_MANUALLY

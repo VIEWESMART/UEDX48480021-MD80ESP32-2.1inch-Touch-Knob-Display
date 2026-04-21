@@ -21,6 +21,7 @@
 #include "esp_lvgl_port.h"
 #include "driver/i2c.h"
 #include "esp_lcd_touch_cst816s.h"
+#include "ui/ui.h"
 
 #include "demos/lv_demos.h"
 #include "demos/keypad_encoder/lv_demo_keypad_encoder.h"
